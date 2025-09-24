@@ -55,10 +55,10 @@ namespace TaskManagmentSystem.API
             builder.Services.AddScoped<ITeamUserServices, TeamUserServices>();
             builder.Services.AddScoped<ITaskServices, TaskServices>();
             builder.Services.AddScoped<ITaskUserServices, TaskUserServices>();
-            //var config = TypeAdapterConfig.GlobalSettings;
-            //config.Scan(typeof(Program).Assembly);
-            //builder.Services.AddSingleton(config);
-            //builder.Services.AddScoped<IMapper, ServiceMapper>();
+            var config = TypeAdapterConfig.GlobalSettings;
+            config.Scan(typeof(Program).Assembly);
+            builder.Services.AddSingleton(config);
+            builder.Services.AddScoped<IMapper, ServiceMapper>();
             builder.Services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
